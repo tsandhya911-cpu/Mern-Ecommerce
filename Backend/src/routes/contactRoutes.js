@@ -1,16 +1,3 @@
-
-// import express from "express";
-// import { protect } from "../middleware/authMiddleware.js";
-
-// import { sendMessage, getMessages } from "../controllers/contactController.js";
-
-// const router = express.Router();
-
-// router.post("/", protect, sendMessage);
-// router.get("/", protect, getMessages);
-
-// export default router;
-
 import express from "express";
 import { protect } from "../middleware/authMiddleware.js";
 

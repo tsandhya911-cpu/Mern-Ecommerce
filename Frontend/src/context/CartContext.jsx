@@ -1,6 +1,5 @@
 
 import { createContext, useState, useEffect } from "react";
-// import { toast } from "react-hot-toast"; // Optional: for notifications
 import { toast } from "react-toastify";
 export const CartContext = createContext();
 
@@ -19,24 +18,7 @@ const CartProvider = ({ children }) => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
-  // const addToCart = (product) => {
-  //   const exist = cart.find((item) => item._id === product._id);
-
-  //   const cartProduct = {
-  //     ...product,
-  //     qty: exist ? exist.qty + 1 : 1,
-  //     image: product.image.startsWith("http") ? product.image : `http://localhost:5000${product.image}`
-  //   };
-
-  //   if (exist) {
-  //     setCart(cart.map((item) =>
-  //       item._id === product._id ? cartProduct : item
-  //     ));
-  //   } else {
-  //     setCart([...cart, cartProduct]);
-  //   }
-  // };
-
+  
   const addToCart = (product) => {
     setCart((prevCart) => {
       const exist = prevCart.find((item) => item._id === product._id);

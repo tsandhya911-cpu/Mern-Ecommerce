@@ -79,7 +79,7 @@ export const addReview = async (req, res) => {
             return res.status(404).json({ message: "Product not found" });
         }
 
-        // ❗ check user already reviewed
+        // check user already reviewed
         const alreadyReviewed = product.reviews.find(
             (r) => r.user.toString() === req.user._id.toString()
         );
@@ -115,7 +115,7 @@ export const addReview = async (req, res) => {
 };
 
 
-// ✅ ADD THIS FUNCTION
+// ADD THIS FUNCTION
 export const createReview = async (req, res) => {
     try {
         const { rating, comment } = req.body;

@@ -4,14 +4,14 @@ import mongoose from "mongoose";
 export const createOrder = async (req, res) => {
     try {
 
-        console.log("FULL BODY 👉", req.body);   // 🔥 ADD THIS
-        console.log("SHIPPING 👉", req.body.shippingAddress); // 🔥 ADD THIS
+        console.log("FULL BODY 👉", req.body);   // ADD THIS
+        console.log("SHIPPING 👉", req.body.shippingAddress); // ADD THIS
 
         
-        // 🔥 YAHI ADD KAR
-        console.log("FULL BODY 👉", req.body);
-        console.log("SHIPPING 👉", req.body.shippingAddress);
-        console.log("HEADERS 👉", req.headers);
+        // YAHI ADD KAR
+        console.log("FULL BODY ", req.body);
+        console.log("SHIPPING ", req.body.shippingAddress);
+        console.log("HEADERS ", req.headers);
 
 
         const orderItems = req.body.orderItems;
@@ -32,19 +32,19 @@ export const createOrder = async (req, res) => {
 
         const order = new Order({
             user: req.user._id,
-            shippingAddress: shippingAddress,  // 🔥 direct use
+            shippingAddress: shippingAddress,  //direct use
             orderItems: formattedItems,
             totalPrice,
         });
         const savedOrder = await order.save();
 
-        // ✅ ONLY ONE RESPONSE
+        // ONLY ONE RESPONSE
         res.status(201).json(savedOrder);
 
     } catch (error) {
-        console.log("ORDER ERROR 👉", error);
+        console.log("ORDER ERROR ", error);
         res.status(500).json({
-            message: "Order Failed ❌",
+            message: "Order Failed ",
             error: error.message
         });
     }
@@ -52,7 +52,7 @@ export const createOrder = async (req, res) => {
 
 export const getOrders = async (req, res) => {
     try {
-        const orders = await Order.find({ user: req.user._id }) // 🔥 FIX
+        const orders = await Order.find({ user: req.user._id }) //FIX
             .populate("user", "name email")
             .sort({ createdAt: -1 });
 
@@ -64,7 +64,7 @@ export const getOrders = async (req, res) => {
     }
 };
 
-// ✅ GET SINGLE ORDER
+// GET SINGLE ORDER
 export const getOrderById = async (req, res) => {
     try {
         const { id } = req.params;
@@ -88,7 +88,7 @@ export const getOrderById = async (req, res) => {
     }
 };
 
-// ✅ MARK AS PAID
+// MARK AS PAID
 export const markAsPaid = async (req, res) => {
     try {
         const order = await Order.findById(req.params.id);
@@ -97,7 +97,7 @@ export const markAsPaid = async (req, res) => {
             order.isPaid = true;
             await order.save();
 
-            res.json({ message: "Payment Done ✅" });
+            res.json({ message: "Payment Done " });
         } else {
             res.status(404).json({ message: "Order not found" });
         }
@@ -107,7 +107,7 @@ export const markAsPaid = async (req, res) => {
     }
 };
 
-// ✅ UPDATE STATUS
+//  UPDATE STATUS
 export const updateOrderStatus = async (req, res) => {
     try {
         const order = await Order.findById(req.params.id);

@@ -12,21 +12,21 @@ export const protect = async (req, res, next) => {
 
       req.user = await User.findById(decoded.id).select("-password");
 
-      return next(); // ✅ IMPORTANT
+      return next(); // IMPORTANT
     } catch (error) {
       return res.status(401).json({ message: "Not authorized, token failed" });
     }
   }
 
-  return res.status(401).json({ message: "Not authorized, no token" }); // ✅ return lagao
+  return res.status(401).json({ message: "Not authorized, no token" }); // return lagao
 };
 
 
-// 👑 ADMIN CHECK
+// ADMIN CHECK
 export const admin = (req, res, next) => {
   if (req.user && req.user.isAdmin) {
-    next(); // ✅ allow
+    next(); //allow
   } else {
-    res.status(403).json({ message: "Admin only ❌" });
+    res.status(403).json({ message: "Admin only" });
   }
 };

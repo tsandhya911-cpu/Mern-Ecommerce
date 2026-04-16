@@ -1,4 +1,4 @@
-import "./index.css"; // ✅ import CSS
+import "./index.css"; 
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import CartProvider from "./context/CartContext";

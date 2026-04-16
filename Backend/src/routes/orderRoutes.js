@@ -11,8 +11,8 @@ import { protect } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
-router.post("/", protect, createOrder); // 🔥 PROTECTED
-router.get("/", protect, getOrders);   // 🔥 USER ORDERS ONLY
+router.post("/", protect, createOrder); // PROTECTED
+router.get("/", protect, getOrders);   //USER ORDERS ONLY
 router.get("/:id", protect, getOrderById);
 
 router.put("/:id/pay", protect, markAsPaid);

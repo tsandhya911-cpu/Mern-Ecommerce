@@ -1,4 +1,3 @@
-
 import express from "express";
 import {
     createProduct,
@@ -6,7 +5,7 @@ import {
     getProductById,
     getProducts,
     updateProduct,
-    createReview   // ✅ ADD THIS
+    createReview   //ADD THIS
 } from "../controllers/productController.js";
 
 import { protect, admin } from "../middleware/authMiddleware.js";
@@ -16,7 +15,7 @@ const router = express.Router();
 router.get("/", getProducts);
 router.get("/:id", getProductById);
 
-// ✅ FIXED
+// FIXED
 router.post("/:id/review", protect, createReview);
 
 router.post("/", protect, admin, createProduct);
