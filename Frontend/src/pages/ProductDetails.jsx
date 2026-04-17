@@ -6,7 +6,7 @@ import { CartContext } from "../context/CartContext";
 import Rating from "../components/Rating";
 import { BASE_URL } from "../utils/baseURL";
 
-const BASE_URL = import.meta.env.VITE_API_URL.replace("/api", "");
+
 const ProductDetails = () => {
 
     const { id } = useParams();

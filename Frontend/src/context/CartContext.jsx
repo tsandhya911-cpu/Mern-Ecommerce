@@ -2,6 +2,7 @@
 import { createContext, useState, useEffect } from "react";
 import { toast } from "react-toastify";
 export const CartContext = createContext();
+import { BASE_URL } from "../utils/baseURL"; 
 
 const CartProvider = ({ children }) => {
 
@@ -23,7 +24,7 @@ const CartProvider = ({ children }) => {
     setCart((prevCart) => {
       const exist = prevCart.find((item) => item._id === product._id);
 
-      const BASE_URL = import.meta.env.VITE_API_URL.replace("/api", "");
+  
 
       const updatedProduct = {
         ...product,
