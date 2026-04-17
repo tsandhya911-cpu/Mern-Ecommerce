@@ -18,17 +18,19 @@ const CartProvider = ({ children }) => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
-  
+
   const addToCart = (product) => {
     setCart((prevCart) => {
       const exist = prevCart.find((item) => item._id === product._id);
 
+      const BASE_URL = import.meta.env.VITE_API_URL.replace("/api", "");
+
       const updatedProduct = {
         ...product,
         qty: exist ? exist.qty + 1 : 1,
-        image: product.image.startsWith("http")
+        image: product.image?.startsWith("http")
           ? product.image
-          : `http://localhost:5000${product.image}`,
+          : `${BASE_URL}${product.image}`,
       };
 
       if (exist) {
@@ -46,7 +48,7 @@ const CartProvider = ({ children }) => {
   const removeFromCart = (id) => {
     const removedItem = cart.find((item) => item._id === id);
     setCart(cart.filter((item) => item._id !== id));
-   toast.error(`${removedItem.name} removed from cart ❌`);
+    toast.error(`${removedItem.name} removed from cart ❌`);
   };
 
   const increaseQty = (id) => {

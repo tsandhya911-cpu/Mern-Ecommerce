@@ -52,9 +52,9 @@ const Cart = () => {
                                     <div className="w-full sm:w-28 h-28 flex items-center justify-center bg-purple-100 rounded-xl">
                                         <img
                                             src={
-                                                item.image.startsWith("http")
+                                                item.image?.startsWith("http")
                                                     ? item.image
-                                                    : `http://localhost:5000${item.image}`
+                                                    : `${BASE_URL}${item.image}`
                                             }
                                             alt={item.name}
                                             className="w-24 h-24 object-contain"

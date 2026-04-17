@@ -102,9 +102,7 @@ const MyOrders = () => {
                                                 src={
                                                     item.image?.startsWith("http")
                                                         ? item.image
-                                                        : item.image?.startsWith("/images")
-                                                            ? `http://localhost:5000${item.image}`
-                                                            : `http://localhost:5000/images/${item.image}`
+                                                        : `${BASE_URL}/images/${item.image?.split("/").pop()}`
                                                 }
                                                 alt={item.name}
                                                 className="w-20 h-20 object-cover rounded-lg border"

@@ -89,7 +89,7 @@ const ProductDetails = () => {
                 {/* IMAGE */}
                 <div className="flex justify-center items-center bg-white/70 backdrop-blur-md p-6 rounded-2xl">
                     <img
-                        src={`http://localhost:5000/images/${product.image?.split("/").pop()}`}
+                        src={`${BASE_URL}/images/${product.image?.split("/").pop()}`}
                         alt={product.name}
                         className="w-64 h-64 object-contain rounded-lg"
                     />

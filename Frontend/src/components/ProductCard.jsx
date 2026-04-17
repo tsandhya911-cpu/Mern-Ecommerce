@@ -41,7 +41,7 @@ const ProductCard = ({ product }) => {
             flex items-center justify-center overflow-hidden">
 
                 <img
-                    src={`http://localhost:5000/images/${product.image?.replace("/images/", "")}`}
+                   src={`${import.meta.env.VITE_API_URL.replace("/api", "")}/images/${product.image?.replace("/images/", "")}`}
                     alt={product.name}
                     className="max-h-full max-w-full object-contain 
                     group-hover:scale-110 transition duration-300"
