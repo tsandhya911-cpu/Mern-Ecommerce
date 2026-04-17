@@ -2,6 +2,9 @@ import { toast } from "react-toastify";
 import { useContext, useState } from "react";
 import { CartContext } from "../context/CartContext";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../utils/baseURL";   
+
+const BASE_URL = import.meta.env.VITE_API_URL.replace("/api", "");
 
 const Cart = () => {
     const [loading, setLoading] = useState(false);

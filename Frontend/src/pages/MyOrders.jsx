@@ -2,6 +2,9 @@ import { toast } from "react-toastify";
 import API from "../services/api";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { BASE_URL } from "../utils/baseURL";   
+
+const BASE_URL = import.meta.env.VITE_API_URL.replace("/api", "");
 
 const MyOrders = () => {
     const [orders, setOrders] = useState([]);
