@@ -3,6 +3,7 @@ import { CartContext } from "../context/CartContext";
 import Rating from "./Rating";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { BASE_URL } from "../utils/baseURL";
 
 const ProductCard = ({ product }) => {
 
@@ -41,11 +42,14 @@ const ProductCard = ({ product }) => {
             flex items-center justify-center overflow-hidden">
 
                 <img
-                   src={`${import.meta.env.VITE_API_URL.replace("/api", "")}/images/${product.image?.replace("/images/", "")}`}
+
+                    src={`${BASE_URL}/images/${product.image?.replace("/images/", "")}`}
                     alt={product.name}
-                    className="max-h-full max-w-full object-contain 
-                    group-hover:scale-110 transition duration-300"
                 />
+                alt={product.name}
+                className="max-h-full max-w-full object-contain
+                group-hover:scale-110 transition duration-300"
+
 
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition"></div>
             </div>
