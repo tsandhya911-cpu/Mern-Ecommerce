@@ -54,7 +54,7 @@ const Home = () => {
             <div className="max-w-7xl mx-auto">
 
                 {/* 🔥 HERO */}
-                <div className="backdrop-blur-lg bg-white/60 border border-white/30 
+                <div className="bg-white border border-gray-200
                 rounded-3xl p-6 md:p-10 mb-10 text-center shadow-xl">
 
                     <h1 className="text-3xl md:text-5xl font-extrabold mb-3 
@@ -75,7 +75,7 @@ const Home = () => {
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
                         className="w-full max-w-lg px-5 py-3 rounded-full 
-                        backdrop-blur-lg bg-white/70 border border-white/30 shadow-md
+                   bg-white border border-gray-200 shadow-m 
                         focus:outline-none focus:ring-2 focus:ring-pink-400"
                     />
                 </div>
@@ -90,7 +90,7 @@ const Home = () => {
                             className={`px-5 py-2 rounded-full text-sm transition
                             ${category === cat
                                     ? "bg-gradient-to-r from-pink-500 to-purple-600 text-white shadow-md scale-105"
-                                    : "backdrop-blur-lg bg-white/60 border border-white/30 hover:scale-105"
+                                    : "bg-white border border-gray-200 hover:scale-105"
                                 }`}
                         >
                             {cat}
