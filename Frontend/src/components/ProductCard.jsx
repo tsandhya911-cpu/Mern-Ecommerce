@@ -32,9 +32,9 @@ const ProductCard = ({ product }) => {
     return (
         <div
             onClick={handleOpenDetails}
-            className="group relative bg-white/60 backdrop-blur-lg border border-white/30 
-            rounded-2xl overflow-hidden shadow-lg hover:shadow-pink-400/40 
-            hover:-translate-y-2 transition-all duration-300 cursor-pointer"
+            className="group relative bg-white border border-gray-200 
+rounded-2xl overflow-hidden shadow-lg hover:shadow-pink-400/40 
+hover:-translate-y-2 transition-all duration-300 cursor-pointer"
         >
 
             {/* IMAGE */}
